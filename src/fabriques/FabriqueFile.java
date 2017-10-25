@@ -3,11 +3,6 @@ package fabriques;
 import etats.EtatNodeFile;
 
 public interface FabriqueFile<T extends EtatNodeFile<T>> {
-
-	/*
-	 * Méthode qui retourne la file
-	 */
-	public T[] file();
 	
 	/*
 	 * Méthode qui retourne la taille de la file
