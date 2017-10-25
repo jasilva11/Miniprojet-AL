@@ -13,6 +13,6 @@ public interface EtatNodeFile<T> {
 	{return null;}
 	default T getSuccesseur()
 	{return null;}
-	default int val()
+	default T val()
 	{throw new UnsupportedOperationException();}
 }

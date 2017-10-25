@@ -1,5 +1,5 @@
 package fabriques;
 
 public interface FabriqueNodeFile<T> {
-	T creerNodeFile(int val);
+	T creerNodeFile(T val, T predecesseur,T successeur);
 }

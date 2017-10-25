@@ -3,10 +3,12 @@ package etats;
 public class CasNodeFile<T> implements EtatNodeFile<T> {
 	T predecesseur;
 	T successeur;
-	int n;
-	public CasNodeFile(int val) {
+	T n;
+	public CasNodeFile(T val, T p,T s) {
 		// TODO Auto-generated constructor stub
 		this.n=val;
+		this.predecesseur=p;
+		this.successeur=s;
 	}
 	@Override
 	public boolean estTete(){
@@ -17,7 +19,7 @@ public class CasNodeFile<T> implements EtatNodeFile<T> {
 		return this.getSuccesseur()==null;
 	}
 	@Override
-	public int val(){
+	public T val(){
 		return this.n;
 	}
 	
