@@ -1,4 +1,4 @@
-package etat;
+package etats;
 
 public interface EtatNodeFile <T>{
 	default boolean estTete()
