@@ -10,11 +10,11 @@ public class CasNodeFile<T> implements EtatNodeFile<T> {
 	}
 	@Override
 	public boolean estTete(){
-		return this.Getpredecesseur()==null;
+		return this.getPredecesseur()==null;
 	}
 	@Override
 	public boolean estQueue(){
-		return this.Getsuccesseur()==null;
+		return this.getSuccesseur()==null;
 	}
 	@Override
 	public int val(){

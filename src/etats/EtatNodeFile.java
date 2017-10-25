@@ -5,13 +5,13 @@ public interface EtatNodeFile<T> {
 	{return false;}
 	default boolean estQueue()
 	{return false;}
-	default T Setpredecesseur()
+	default T setPredecesseur()
 	{return null;}
-	default T Getpredecesseur()
+	default T getPredecesseur()
 	{return null;}
-	default T Setsuccesseur()
+	default T setSuccesseur()
 	{return null;}
-	default T Getsuccesseur()
+	default T getSuccesseur()
 	{return null;}
 	default int val()
 	{throw new UnsupportedOperationException();}
