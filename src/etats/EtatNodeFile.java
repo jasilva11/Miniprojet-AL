@@ -1,6 +1,6 @@
 package etats;
 
-public interface EtatNodeFile <T>{
+public interface EtatNodeFile<T> {
 	default boolean estTete()
 	{return false;}
 	default boolean estQueue()
