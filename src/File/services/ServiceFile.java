@@ -9,5 +9,7 @@ public interface ServiceFile<R> {
 	/*
 	 * Méthode qui retire un élément de la file
 	 */
-	boolean pull(R element);
+	boolean pull();
+	
+	String toStringD();
 }

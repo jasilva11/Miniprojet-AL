@@ -11,21 +11,8 @@ public class FileMutable<R> extends CasFileMutable<R> implements FileGen<R>, Ser
 	public FileMutable(LinkedList<R> list) {
 		super(list);
 	}
-	
 	public FileMutable(R element) {
 		super(element);
-	}
-
-	@Override
-	public boolean push(R element) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean pull(R element) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }
