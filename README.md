@@ -1,6 +1,6 @@
 # Miniprojet-AL
 
-Ce projet est composé par différents couches distribués dans 3 packages et un package plus grand (File) contenant les packages et les interfaces et class d'implémentation.
+Ce projet est composé par différents couches distribués dans 3 packages et un package plus grand (File) contenant les packages, les interfaces et les classes d'implémentation.
 On utilise une LinkedList comme attribut de la FileMutable, la file est du type generique T et la LinkedList du type générique R.
 Les packages ont la distribution suivante :
 1. etats : Contenant un état et un cas pour chaque type de liste.
