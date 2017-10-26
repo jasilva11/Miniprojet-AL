@@ -1,7 +1,5 @@
 package File;
 
-import java.util.LinkedList;
-
 import File.fabriques.FabriqueFile;
 import File.fabriques.FabriqueFileGen;
 import File.services.ServiceFile;
