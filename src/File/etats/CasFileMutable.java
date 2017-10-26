@@ -2,23 +2,46 @@ package File.etats;
 
 import java.util.LinkedList;
 
+/**
+ * Classe qui determine une file mutable 
+ * Le type R correspond au type des donnÃ©es qui seront stockÃ©es dans la file
+ * 
+ * Cette implementation est basÃ©e sur le modÃ¨le Ã©tudiÃ© en cours d'Architecture Logicielle Ã  l'IMT Atlantique
+ * et qui peut Ãªtre consultÃ© sur http://www.grall.name/teaching/softwareArchitecture/2018/implementationClass-method.html
+ * 
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public class CasFileMutable<R> implements EtatFile<R> {
 	
+	/**
+	* Attribut qui correspond Ã  la liste qui representera la file mutable des donnÃ©es de type R
+	*/
 	private LinkedList <R> liste;
 	
+	/**
+	* Constructeur de la File Mutable qui reÃ§oit une liste par paramÃ¨tre
+	* @param LinkedList<R> la liste qui sert Ã  initialiser la file des donnÃ©es de type R
+	*/
 	public CasFileMutable(LinkedList<R> list) {
 		// TODO Auto-generated constructor stub
 		this.liste=list;
 	}
 	
+	/**
+	* Constructeur de la File Mutable qui reÃ§oit une liste par paramÃ¨tre
+	* @param LinkedList<R> la liste qui sert Ã  initialiser la file
+	*/
 	public CasFileMutable(R element) {
 		// TODO Auto-generated constructor stub
 		this.liste= new LinkedList<R>();
 		this.liste.add(element);
 	}
+	
 	/**
-	* Méthode qui retourne la taille de la file
-	* Cette méthode est nécessaire pour connaître la taille de la file dans un moment donne  
+	* Mï¿½thode qui retourne la taille de la file
+	* Cette mï¿½thode est nï¿½cessaire pour connaï¿½tre la taille de la file dans un moment donne  
 	*
 	* @param 
 	* @return int La taille actuelle de la file 
@@ -30,12 +53,13 @@ public class CasFileMutable<R> implements EtatFile<R> {
 		// TODO Auto-generated method stub
 		return this.liste.size();
 	}
+	
 	/**
-	* Méthode qui retourne la téte de la file
-	* Cette méthode est nécessaire pour connaître la téte de la file dans un moment donne  
+	* Mï¿½thode qui retourne la tï¿½te de la file
+	* Cette mï¿½thode est nï¿½cessaire pour connaï¿½tre la tï¿½te de la file dans un moment donne  
 	*
 	* @param 
-	* @return R La téte actuelle de la file 
+	* @return R La tï¿½te actuelle de la file 
 	* @exception 
 	*
 	*/
@@ -44,9 +68,10 @@ public class CasFileMutable<R> implements EtatFile<R> {
 		// TODO Auto-generated method stub
 		return this.liste.getFirst();
 	}
+	
 	/**
-	* Méthode qui retourne la queue de la file
-	* Cette méthode est nécessaire pour connaître la queue de la file dans un moment donne  
+	* Mï¿½thode qui retourne la queue de la file
+	* Cette mï¿½thode est nï¿½cessaire pour connaï¿½tre la queue de la file dans un moment donne  
 	*
 	* @param 
 	* @return R La queue actuelle de la file 
@@ -58,12 +83,13 @@ public class CasFileMutable<R> implements EtatFile<R> {
 		// TODO Auto-generated method stub
 		return this.liste.getLast();
 	}
+	
 	/**
-	* Méthode qui retourne la liste qui représente la file
-	* Cette méthode est nécessaire pour connaître la liste qui représente la file dans un moment donne  
+	* Mï¿½thode qui retourne la liste qui reprï¿½sente la file
+	* Cette mï¿½thode est nï¿½cessaire pour connaï¿½tre la liste qui reprï¿½sente la file dans un moment donne  
 	*
 	* @param 
-	* @return int La liste actuelle de la file 
+	* @return LinkedList<R> La liste qui represente la file mutable 
 	* @exception 
 	*
 	*/

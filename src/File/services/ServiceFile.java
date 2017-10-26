@@ -1,35 +1,49 @@
 package File.services;
 
+/**
+ * Interface qui sert Ã  definir les services qu'une file devrait pouvoir rÃ©pondre
+ * Le type R correspond au type des donnÃ©es qui seront stockÃ©es dans la file
+ * 
+ * Cette implementation est basÃ©e sur le modÃ¨le Ã©tudiÃ© en cours d'Architecture Logicielle Ã  l'IMT Atlantique
+ * et qui peut Ãªtre consultÃ© sur http://www.grall.name/teaching/softwareArchitecture/2018/implementationClass-method.html
+ * 
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public interface ServiceFile<R> {
+	
 	/**
-	* Méthode qui ajoute un élément a la liste 
-	* Cette méthode est nécessaire pour déclarer la méthode qui va nous permettre de
-	* ajouter un élément a la liste  dans un moment donne  
+	* Mï¿½thode qui ajoute un ï¿½lï¿½ment a la liste 
+	* Cette mï¿½thode est nï¿½cessaire pour dï¿½clarer la mï¿½thode qui va nous permettre de
+	* ajouter un ï¿½lï¿½ment a la liste  dans un moment donne  
 	*
 	* @param 
-	* @return R Un élément de la file 
+	* @return R Un ï¿½lï¿½ment de la file 
 	* @exception 
 	*
 	*/
 	boolean push(R element);
+	
 	/**
-	* Méthode qui retire la téte de la liste 
-	* Cette méthode est nécessaire pour déclarer la méthode qui va nous permettre de
-	* retirer la téte de la liste  dans un moment donne  
+	* Mï¿½thode qui retire la tï¿½te de la liste 
+	* Cette mï¿½thode est nï¿½cessaire pour dï¿½clarer la mï¿½thode qui va nous permettre de
+	* retirer la tï¿½te de la liste  dans un moment donne  
 	*
 	* @param 
-	* @return 
+	* @return true si le premier Ã©lÃ©ment de la file a bien Ã©tÃ© enlevÃ© ou false au cas contraire
 	* @exception 
 	*
 	*/
 	boolean pull();
+	
 	/**
-	* Méthode qui retourne la liste comme un String 
-	* Cette méthode est nécessaire pour déclarer la méthode qui va nous permettre de
+	* Mï¿½thode qui retourne la liste comme un String 
+	* Cette mï¿½thode est nï¿½cessaire pour dï¿½clarer la mï¿½thode qui va nous permettre de
 	* retourner la liste comme un String dans un moment donne  
 	*
 	* @param 
-	* @return 
+	* @return true si le premier Ã©lÃ©ment de la file a bien Ã©tÃ© ajoutÃ© ou false au cas contraire
 	* @exception 
 	*
 	*/

@@ -2,11 +2,23 @@ package File.etats;
 
 import java.util.LinkedList;
 
+/**
+ * Interface qui sert Ã  dÃ©crire l'Ã©tat des files c.a.d ses mÃ©thodes principales 
+ * Le type R correspond au type des donnÃ©es qui seront stockÃ©es dans la file
+ * 
+ * Cette implementation est basÃ©e sur le modÃ¨le Ã©tudiÃ© en cours d'Architecture Logicielle Ã  l'IMT Atlantique
+ * et qui peut Ãªtre consultÃ© sur http://www.grall.name/teaching/softwareArchitecture/2018/implementationClass-method.html
+ * 
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public interface EtatFile<R> {
+	
 	/**
-	* Méthode qui retourne la taille de la file
-	* Cette méthode est nécessaire pour déclarer la méthode qui va nous permettre
-	* de connaître la taille de la file dans un moment donne  
+	* Mï¿½thode qui retourne la taille de la file
+	* Cette mï¿½thode est nï¿½cessaire pour dï¿½clarer la mï¿½thode qui va nous permettre
+	* de connaï¿½tre la taille de la file dans un moment donne  
 	*
 	* @param 
 	* @return int La taille actuelle de la file 
@@ -16,21 +28,21 @@ public interface EtatFile<R> {
 	public int tailleFile();
 
 	/**
-	* Méthode qui retourne la téte de la file
-	* Cette méthode est nécessaire pour déclarer la méthode qui va nous permettre de
-	*  connaître la téte de la file dans un moment donne  
+	* Mï¿½thode qui retourne la tï¿½te de la file
+	* Cette mï¿½thode est nï¿½cessaire pour dï¿½clarer la mï¿½thode qui va nous permettre de
+	*  connaï¿½tre la tï¿½te de la file dans un moment donne  
 	*
 	* @param 
-	* @return R La téte actuelle de la file 
+	* @return R La tï¿½te actuelle de la file 
 	* @exception 
 	*
 	*/
 	public R tete();
 	
 	/**
-	* Méthode qui retourne la queue de la file
-	* Cette méthode est nécessaire pour déclarer la méthode qui va nous permettre de
-	*  connaître la queue de la file dans un moment donne  
+	* Mï¿½thode qui retourne la queue de la file
+	* Cette mï¿½thode est nï¿½cessaire pour dï¿½clarer la mï¿½thode qui va nous permettre de
+	*  connaï¿½tre la queue de la file dans un moment donne  
 	*
 	* @param 
 	* @return R La queue actuelle de la file 
@@ -38,13 +50,14 @@ public interface EtatFile<R> {
 	*
 	*/
 	public R queue();
+	
 	/**
-	* Méthode qui retourne la liste qui représente la file
-	* Cette méthode est nécessaire pour déclarer la méthode qui va nous permettre de
-	*  connaître la liste qui représente la file dans un moment donne  
+	* Mï¿½thode qui retourne la liste qui reprï¿½sente la file
+	* Cette mï¿½thode est nï¿½cessaire pour dï¿½clarer la mï¿½thode qui va nous permettre de
+	*  connaï¿½tre la liste qui reprï¿½sente la file dans un moment donne  
 	*
 	* @param 
-	* @return int La liste actuelle de la file 
+	* @return LinkedList<R> La liste qui represente la file mutable 
 	* @exception 
 	*
 	*/

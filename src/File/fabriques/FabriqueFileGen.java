@@ -5,13 +5,26 @@ import java.util.LinkedList;
 import File.FileGen;
 import File.FileMutable;
 
+/**
+ * Fabrique des FilesGen.
+ * Pour l'instant cette fabrique sert seulement Ã  fabriquer des files mutables
+ * Le type R correspond au type des donnÃ©es qui seront stockÃ©es dans la file
+ * 
+ * Cette implementation est basÃ©e sur le modÃ¨le Ã©tudiÃ© en cours d'Architecture Logicielle Ã  l'IMT Atlantique
+ * et qui peut Ãªtre consultÃ© sur http://www.grall.name/teaching/softwareArchitecture/2018/implementationClass-method.html
+ * 
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public interface FabriqueFileGen<R> extends FabriqueFile<FileGen<R>, R> {
+	
 	/**
-	* Méthode qui retourne une nouvelle FileMutable 
-	* Cette méthode est nécessaire pour implémenter le constructeur d’une File  
+	* Mï¿½thode qui retourne une nouvelle FileMutable 
+	* Cette mï¿½thode est nï¿½cessaire pour implï¿½menter le constructeur dï¿½une File  
 	*
-	* @param list doit être une liste de type LinkedList  
-	* @return FileMutable une nouvelle FileMutable avec les éléments de la liste
+	* @param LinkedList<R> La liste des donnÃ©es de type R qui sert Ã  crÃ©er la file mutable 
+	* @return FileMutable une nouvelle FileMutable avec les ï¿½lï¿½ments de la liste
 	* @exception 
 	*
 	*/
@@ -19,12 +32,13 @@ public interface FabriqueFileGen<R> extends FabriqueFile<FileGen<R>, R> {
 	default FileGen<R> creerFileMutable(LinkedList<R> list) {
 		return new FileMutable<R>(list); 
 	}
+	
 	/**
-	* Méthode qui retourne une nouvelle FileMutable 
-	* Cette méthode est nécessaire pour implémenter le constructeur d’une File  
+	* Mï¿½thode qui retourne une nouvelle FileMutable 
+	* Cette mï¿½thode est nï¿½cessaire pour implï¿½menter le constructeur dï¿½une File  
 	*
-	* @param element doit être un Object de type R    
-	* @return FileMutable une nouvelle FileMutable avec le élément element
+	* @param R L'Ã©lÃ©ment de type R avec lequel la file mutable est crÃ©Ã©e    
+	* @return FileMutable une nouvelle FileMutable avec le ï¿½lï¿½ment element
 	* @exception 
 	*
 	*/

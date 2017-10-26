@@ -2,14 +2,26 @@ package File.services;
 
 import File.etats.EtatFile;
 
+/**
+ * Interface des services qu'une file mutable peut rÃ©pondre
+ * Le type R correspond au type des donnÃ©es qui seront stockÃ©es dans la file
+ * 
+ * Cette implementation est basÃ©e sur le modÃ¨le Ã©tudiÃ© en cours d'Architecture Logicielle Ã  l'IMT Atlantique
+ * et qui peut Ãªtre consultÃ© sur http://www.grall.name/teaching/softwareArchitecture/2018/implementationClass-method.html
+ * 
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public interface ServiceFileMutable<T extends ServiceFile<R> ,R> extends ServiceFile<R>, EtatFile<R>{
+	
 	/**
-	* Méthode qui ajoute un élément a la liste 
-	* Cette méthode est nécessaire pour implementer la méthode qui ajoute 
-	* un élément a la liste.  
+	* Mï¿½thode qui ajoute un ï¿½lï¿½ment a la liste 
+	* Cette mï¿½thode est nï¿½cessaire pour implementer la mï¿½thode qui ajoute 
+	* un ï¿½lï¿½ment a la file mutable.  
 	*
-	* @param 
-	* @return true si la liste ajoute l'élément   
+	* @param R l'Ã©lÃ©ment Ã  ajouter dans la file
+	* @return true si la file mutable ajoute l'ï¿½lï¿½ment, false au cas contraire  
 	* @exception 
 	*
 	*/
@@ -18,13 +30,14 @@ public interface ServiceFileMutable<T extends ServiceFile<R> ,R> extends Service
 		this.liste().addLast(node);
 		return true;
 	}
+	
 	/**
-	* Méthode qui retire la téte de la liste 
-	* Cette méthode est nécessaire pour implementer la méthode qui retire 
-	* la téte de la liste  
+	* Mï¿½thode qui retire la tï¿½te de la file mutable 
+	* Cette mï¿½thode est nï¿½cessaire pour implementer la mï¿½thode qui retire 
+	* la tï¿½te de la file mutable
 	*
 	* @param 
-	* @return true si la liste retire la téte 
+	* @return true si la file mutable retire la tï¿½te, false au cas contraire
 	* @exception 
 	*
 	*/
@@ -33,13 +46,14 @@ public interface ServiceFileMutable<T extends ServiceFile<R> ,R> extends Service
 		this.liste().removeFirst();
 		return true;
 	}
+	
 	/**
-	* Méthode qui retourne la liste comme un String 
-	* Cette méthode est nécessaire pour implementer la méthode qui retourne 
-	* la liste comme un String 
+	* Mï¿½thode qui retourne la file mutable comme un String 
+	* Cette mï¿½thode est nï¿½cessaire pour implementer la mï¿½thode qui retourne 
+	* la file mutable comme un String 
 	*
 	* @param 
-	* @return 
+	* @return la rÃ©presentation String de la file mutable
 	* @exception 
 	*
 	*/

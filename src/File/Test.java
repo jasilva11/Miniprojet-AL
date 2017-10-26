@@ -4,13 +4,23 @@ import File.fabriques.FabriqueFile;
 import File.fabriques.FabriqueFileGen;
 import File.services.ServiceFile;
 
+/**
+ * Classe qui sert à tester l'implementation de nos files. Pour l'instant le cas des Files Mutables.
+ * 
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public class Test {
 	
-	public static void main(String[] args) {
-		FabriqueFileGen<Integer> lista= new FabriqueFileGen<Integer>(){};
-		testFileMutable(lista);
-		
-	}
+	/**
+	* M�thode qui teste l'implementation factorisée des files mutables
+	*
+	* @param FabriqueFile<T, Integer> Une fabrique des files des données int
+	* @return 
+	* @exception 
+	*
+	*/
 	private static<T extends ServiceFile<Integer>> void testFileMutable(FabriqueFile<T, Integer> liste) {
 		T fm= liste.creerFileMutable(2);
 		System.out.println(fm.toStringD());
@@ -21,5 +31,19 @@ public class Test {
 		
 		fm.pull();
 		System.out.println(fm.toStringD());
+	}
+	
+	/**
+	* M�thode qui gère l'éxecution du test
+	*
+	* @param 
+	* @return 
+	* @exception 
+	*
+	*/
+	public static void main(String[] args) {
+		FabriqueFileGen<Integer> lista= new FabriqueFileGen<Integer>(){};
+		testFileMutable(lista);
+		
 	}
 }
