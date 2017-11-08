@@ -1,5 +1,6 @@
 package tp.v2;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /*
@@ -41,14 +42,25 @@ public interface Liste<E> extends Iterable<E> {
 	}
 	// renvoie la liste dans l'ordre inverse.
 	default Liste<E> miroir(){
-	
 		if(casCons()) {
 			Iterator<E> iterator = iterator();
 			E current = iterator.next();
+			ArrayList<E> elements=new ArrayList<>();
 			while(iterator.hasNext()) {
+				elements.add(current);
 				current = iterator.next();
 			}
-			return null;
+			Liste<E> t=vide();
+			for(int i=0;i<elements.size();i++) {
+				
+				if(i==0) {
+					t=cons(elements.get(i), vide());
+				}
+				else {
+					t=cons(elements.get(i), t);
+				}
+			}
+			return t;
 		}
 		else {
 			return this;
