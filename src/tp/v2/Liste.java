@@ -47,6 +47,7 @@ public interface Liste<E> extends Iterable<E> {
 				Liste<E> nc=cons(this.tete(), this.reste().reste());
 				Liste<E> temp= cons(this.reste().tete(), nc);
 			}
+			return null;
 		}
 		else {
 			return this;
