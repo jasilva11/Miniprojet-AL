@@ -21,7 +21,6 @@ public interface ListeMutable<E> extends Liste<E>{
 	/*
 	 * Services
 	 */
-	@Override
 	default ListeMutable<E> miroir(){
 		// TODO
 		return null;
