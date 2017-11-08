@@ -20,17 +20,16 @@ public interface ListeMutable<E> extends Liste<E>{
 	/*
 	 * Services
 	 */
+	@Override
 	default ListeMutable<E> miroir(){
 		// TODO
 		return null;
 	}
-
 	public static <E> ListeMutable<E> cons(E t, ListeMutable<E> r){
 		return new ListeMutable<E>() {
 			// TODO Définir les méthodes utiles.			
 		};
 	}
-	
 	public static <E> ListeMutable<E> vide() {
 		return new ListeMutable<E>() {
 			// TODO Définir les méthodes utiles.						

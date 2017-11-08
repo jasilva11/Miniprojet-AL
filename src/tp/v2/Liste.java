@@ -42,7 +42,13 @@ public interface Liste<E> extends Iterable<E> {
 	// renvoie la liste dans l'ordre inverse.
 	default Liste<E> miroir(){
 		// TODO
-		return null;
+		if(casCons()) {
+			return null;
+		}
+		else {
+			return this;
+		}
+		
 	}
 	/*
 	 * Fabriques (statiques)
@@ -50,13 +56,26 @@ public interface Liste<E> extends Iterable<E> {
 	
 	public static <E> Liste<E> vide() {
 		return new Liste<E>() {
-			// TODO Définir les méthodes utiles.			
+			// TODO Définir les méthodes utiles.
+			public boolean casVide() {
+				return true;
+			}
+			public boolean casCons() {
+				return false;
+			}
+			 public int taille(){
+				return 0;
+			}
+			 public boolean estVide(){
+				return this.taille() == 0;
+			}
 		};
 	}
 	
 	public static <E> Liste<E> cons(E t, Liste<E> r) {
 		return new Liste<E>() {
-			// TODO Définir les méthodes utiles.			
+			// TODO Définir les méthodes utiles.
+			
 		};
 	}
 	
