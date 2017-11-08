@@ -1,9 +1,9 @@
-package File.fabriques;
+package tp.v1.file.fabriques;
 
 import java.util.LinkedList;
 
-import File.FileGen;
-import File.FileMutable;
+import tp.v1.file.FileGen;
+import tp.v1.file.FileMutable;
 
 /**
  * Fabrique des FilesGen.

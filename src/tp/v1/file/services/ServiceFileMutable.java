@@ -1,6 +1,6 @@
-package File.services;
+package tp.v1.file.services;
 
-import File.etats.EtatFile;
+import tp.v1.file.etats.EtatFile;
 
 /**
  * Interface des services qu'une file mutable peut répondre

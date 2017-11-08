@@ -1,8 +1,8 @@
-package File;
+package tp.v1.file;
 
-import File.fabriques.FabriqueFile;
-import File.fabriques.FabriqueFileGen;
-import File.services.ServiceFile;
+import tp.v1.file.fabriques.FabriqueFile;
+import tp.v1.file.fabriques.FabriqueFileGen;
+import tp.v1.file.services.ServiceFile;
 
 /**
  * Classe qui sert à tester l'implementation de nos files. Pour l'instant le cas des Files Mutables.

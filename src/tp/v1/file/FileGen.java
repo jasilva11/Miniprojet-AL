@@ -1,8 +1,8 @@
-package File;
+package tp.v1.file;
 
-import File.etats.EtatFile;
-import File.fabriques.FabriqueFileGen;
-import File.services.ServiceFile;
+import tp.v1.file.etats.EtatFile;
+import tp.v1.file.fabriques.FabriqueFileGen;
+import tp.v1.file.services.ServiceFile;
 
 /**
  * Interface des FilesGen qui pour l'instant sont seulement files mutables

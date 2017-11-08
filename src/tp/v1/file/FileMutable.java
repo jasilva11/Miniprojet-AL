@@ -1,10 +1,10 @@
-package File;
+package tp.v1.file;
 
 import java.util.LinkedList;
 
-import File.etats.CasFileMutable;
-import File.fabriques.FabriqueFileGen;
-import File.services.ServiceFileMutable;
+import tp.v1.file.etats.CasFileMutable;
+import tp.v1.file.fabriques.FabriqueFileGen;
+import tp.v1.file.services.ServiceFileMutable;
 
 /**
  * Representation d'une file mutable
