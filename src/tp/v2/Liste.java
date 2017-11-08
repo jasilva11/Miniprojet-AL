@@ -43,7 +43,10 @@ public interface Liste<E> extends Iterable<E> {
 	default Liste<E> miroir(){
 	
 		if(casCons()) {
-			return null;
+			for(int i=0;i<taille();i++) {
+				Liste<E> nc=cons(this.tete(), this.reste().reste());
+				Liste<E> temp= cons(this.reste().tete(), nc);
+			}
 		}
 		else {
 			return this;
