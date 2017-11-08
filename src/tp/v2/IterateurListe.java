@@ -4,10 +4,12 @@ import java.util.Iterator;
 
 public class IterateurListe<E> implements Iterator<E> {
 	Liste<E> liste;
+	E actuel;
 	
 	public IterateurListe(Liste<E> liste) {
 		// TODO Auto-generated constructor stub
 		this.liste = liste;
+		this.actuel = liste.tete();
 	}
 
 	@Override
@@ -28,6 +30,7 @@ public class IterateurListe<E> implements Iterator<E> {
 		if(hasNext())
 		{
 			res = liste.reste().tete();
+			actuel = res;
 		}
 		return res;
 	}

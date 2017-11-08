@@ -9,18 +9,18 @@ public interface File<E> extends Iterable<E> {
 	 */
 	E premier();
 	File<E> suivants();
-	
+
 	default boolean estVide() {
 		return this.taille() == 0;
 	}
 	int taille();
-	
+
 	/*
 	 * Fabriques
 	 * - fabrique d'une file vide
 	 */
 	File<E> creer();
-	
+
 	/*
 	 * Services
 	 * - méthodes spécifiques aux files : ajout en queue, retrait en tête
@@ -32,16 +32,52 @@ public interface File<E> extends Iterable<E> {
 	File<E> ajout(E dernierDansFile);
 	File<E> retrait();
 	File<E> ajout(File<E> secondeFile);
-	
+
 	default String representation() {
 		// TODO 
-		return "";
+		if(premier()==null)
+		{
+			return "";
+		}
+		else
+		{
+			return premier().toString() + " " + suivants().representation();
+		}
 	}
 
 	default boolean estEgal(File<E> file){
 		// TODO
-		return true;
+		if(taille() != file.taille())
+		{
+			return false;
+		}
+		else
+		{
+			if(premier()!=null)
+			{
+				if(premier()!=file.premier())
+				{
+					return false;
+				}
+				else
+				{
+					return true && suivants().estEgal(file.suivants());
+				}
+			}
+			else
+			{
+				if(file.premier()==null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
+		}
 	}
-	
-	
+
+
 }
