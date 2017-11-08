@@ -37,15 +37,18 @@ public interface Liste<E> extends Iterable<E> {
 	 */
 	default Iterator<E> iterator() {
 		// TODO
-		return null; // Compléter puis utiliser IterateurListe.
+		return new IterateurListe<>(this); // Compléter puis utiliser IterateurListe.
 	}
 	// renvoie la liste dans l'ordre inverse.
 	default Liste<E> miroir(){
 	
 		if(casCons()) {
-			for(int i=0;i<taille();i++) {
-				Liste<E> nc=cons(this.tete(), this.reste().reste());
-				Liste<E> temp= cons(this.reste().tete(), nc);
+			Iterator<E> iterator = iterator();
+			E current = iterator.next();
+			while(iterator.hasNext()) {
+				Liste<E> nc= cons(this.tete(), this.reste().reste());
+				
+				current = iterator.next();
 			}
 			return null;
 		}
