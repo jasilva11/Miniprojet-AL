@@ -46,8 +46,6 @@ public interface Liste<E> extends Iterable<E> {
 			Iterator<E> iterator = iterator();
 			E current = iterator.next();
 			while(iterator.hasNext()) {
-				Liste<E> nc= cons(this.tete(), this.reste().reste());
-				
 				current = iterator.next();
 			}
 			return null;

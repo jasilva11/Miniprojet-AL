@@ -29,8 +29,9 @@ public class IterateurListe<E> implements Iterator<E> {
 		E res = null;
 		if(hasNext())
 		{
-			res = liste.reste().tete();
-			actuel = res;
+			this.liste = liste.reste();
+			actuel = liste.tete();
+			res = actuel;
 		}
 		return res;
 	}
