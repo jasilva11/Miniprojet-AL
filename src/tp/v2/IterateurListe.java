@@ -3,17 +3,33 @@ package tp.v2;
 import java.util.Iterator;
 
 public class IterateurListe<E> implements Iterator<E> {
+	Liste<E> liste;
+	
+	public IterateurListe(Liste<E> liste) {
+		// TODO Auto-generated constructor stub
+		this.liste = liste;
+	}
 
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
-		return false;
+		boolean res = false;
+		if(!liste.reste().estVide())
+		{
+			res = true;
+		}
+		return res;
 	}
 
 	@Override
 	public E next() {
 		// TODO Auto-generated method stub
-		return null;
+		E res = null;
+		if(hasNext())
+		{
+			res = liste.reste().tete();
+		}
+		return res;
 	}
 
 }
