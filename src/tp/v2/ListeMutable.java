@@ -15,7 +15,7 @@ public interface ListeMutable<E> extends Liste<E>{
 	 */
 	/**
 	* Methode qui retourne le reste de la liste mutable
-	* @returns Le reste de la liste mutable. C'est a dire tout ce que n'est pas la tete
+	* @return Le reste de la liste mutable. C'est a dire tout ce que n'est pas la tete
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
 	default ListeMutable<E> reste() {
@@ -45,7 +45,7 @@ public interface ListeMutable<E> extends Liste<E>{
 	 */
 	/**
 	* Methode qui renvoie l'inverse de la liste mutable
-	* @returns Une liste mutable qui contient le miroir de la liste mutable
+	* @return Une liste mutable qui contient le miroir de la liste mutable
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
 	default ListeMutable<E> miroir(){
@@ -74,7 +74,7 @@ public interface ListeMutable<E> extends Liste<E>{
 	* Fabrique d'une liste mutable qui n'est pas vide
 	* @params E la tete de la nouvelle liste mutable
 	* @params ListeMutable<E> le reste de la nouvelle liste mutable
-	* @returns Une liste mutable qui n'est pas vide
+	* @return Une liste mutable qui n'est pas vide
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
 	public static <E> ListeMutable<E> cons(E t, ListeMutable<E> r){
@@ -145,7 +145,7 @@ public interface ListeMutable<E> extends Liste<E>{
 	
 	/**
 	* Fabrique d'une liste mutable vide
-	* @returns Une liste mutable qui est vide
+	* @return Une liste mutable qui est vide
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
 	public static <E> ListeMutable<E> vide() {
@@ -171,6 +171,5 @@ public interface ListeMutable<E> extends Liste<E>{
 				return true;
 			}						
 		};
-	}
-	
+	}	
 }
