@@ -1,5 +1,11 @@
 package tp.v2;
 
+/**
+ * Classe qui sert à tester l'implementation de nos listes.
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public class Test {
 	
 	/**
@@ -61,6 +67,11 @@ public class Test {
 		
 	}
 	
+	/**
+	* Methode qui teste l'implementation des listes pas vides
+	* @param une liste qui n'est pas vide
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
 	private static<T extends Liste<Integer>> void testListePasVide(Liste<Integer> liste) {
 		System.out.println("******");
 		System.out.println("Une liste pas vide initiale");
@@ -73,6 +84,21 @@ public class Test {
 		Liste<Integer> miroir = liste.miroir();
 		System.out.println("La liste : "+liste.toStringListe());
 		System.out.println("Le miroir de la liste : "+miroir.toStringListe());
+		System.out.println("");
+	}
+	
+	/**
+	* Methode qui teste l'implementation des listes vides
+	* @param une liste qui est vide
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
+	private static<T extends Liste<Integer>> void testListeVide(Liste<Integer> liste) {
+		System.out.println("******");
+		System.out.println("Une liste vide initiale");
+		System.out.println("La taille : "+liste.taille());
+		System.out.println("Elle est vide ? : "+liste.estVide());
+		System.out.println("La liste : "+liste.toStringListe());
+		System.out.println("");
 	}
 	
 	/**
@@ -88,5 +114,6 @@ public class Test {
 		Liste<Integer> listeVide = Liste.vide();
 		Liste<Integer> liste = Liste.cons(1, Liste.cons(2, Liste.cons(3, listeVide)));
 		testListePasVide(liste);
+		testListeVide(listeVide);
 	}
 }
