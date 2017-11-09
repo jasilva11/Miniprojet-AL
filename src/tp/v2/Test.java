@@ -5,18 +5,6 @@ import tp.v1.file.fabriques.FabriqueFileGen;
 import tp.v1.file.services.ServiceFile;
 
 public class Test {
-
-	/**
-	* Methode qui teste l'implementation des listes
-	*
-	* @param 
-	* @return 
-	* @exception 
-	*
-	*/
-	private static<T extends Liste<Integer>> void testListe(Liste<Integer> liste) {
-		
-	}
 	
 	/**
 	* Methode qui teste l'implementation des listes mutable
@@ -41,6 +29,19 @@ public class Test {
 		*/
 	}
 	
+	private static<T extends Liste<Integer>> void testListe(Liste<Integer> liste) {
+		System.out.println("Une liste mutable initiale");
+		System.out.println(liste.toStringListe());
+		System.out.println("Elle est vide ? : "+liste.estVide());
+		
+		/*
+		System.out.println("La liste : "+listeMutable.toString());
+		System.out.println("On ajoute le 4");
+		listeMutable.changerTete(4);
+		System.out.println("La liste : "+listeMutable.toString());
+		*/
+	}
+	
 	/**
 	* Methode qui gère l'éxecution du test
 	*
@@ -50,10 +51,10 @@ public class Test {
 	*
 	*/
 	public static void main(String[] args) {
-		//Liste<Integer> liste = new Liste<Integer>() {};
-		final ListeMutable<Integer> listeMutable = new ListeMutable<Integer>() {};
+		Liste<Integer> liste = new Liste<Integer>() {};
+		//final ListeMutable<Integer> listeMutable = new ListeMutable<Integer>() {};
 		
-		//testListe(liste);
-		testListeMutable(listeMutable);
+		testListe(liste);
+		//testListeMutable(listeMutable);
 	}
 }
