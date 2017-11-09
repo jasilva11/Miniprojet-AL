@@ -4,9 +4,9 @@ import java.util.Iterator;
 
 public class FileImmutableImp<E> implements FileImmutable<E>{
 
-	private Liste<E> debut;
+	Liste<E> debut;
 
-	private Liste<E> fin;
+	Liste<E> fin;
 
 	@Override
 	public E premier() {
@@ -64,15 +64,18 @@ public class FileImmutableImp<E> implements FileImmutable<E>{
 	@Override
 	public FileImmutable<E> creer() {
 		// TODO Auto-generated method stub
-		
-		return new FileImmutableImp<E>();
+		this.debut = Liste.vide();
+		this.fin = Liste.vide();
+		return this;
 	}
 
 	@Override
 	public FileImmutable<E> creer(E dernier) {
 		// TODO Auto-generated method stub
-		FileImmutable<E> res = creer();
-		return null;
+		FileImmutableImp<E> res = (FileImmutableImp<E>) creer();
+		res.debut = this.debut;
+		res.fin = Liste.cons(dernier, this.fin);
+		return res;
 	}
 
 }
