@@ -40,6 +40,21 @@ public interface Liste<E> extends Iterable<E> {
 		// TODO
 		return new IterateurListe<>(this); // Compléter puis utiliser IterateurListe.
 	}
+	
+	public default String toStringListe() {
+		
+		if(estVide()) {
+			return "[]";
+		} else {
+			StringBuilder s = new StringBuilder();
+			
+			s.append(reste().toString()+"-");
+			s.append(tete().toString());
+			
+			return s.toString();
+		}
+	}
+	
 	// renvoie la liste dans l'ordre inverse.
 	default Liste<E> miroir(){
 		if(casCons()) {
