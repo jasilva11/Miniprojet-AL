@@ -2,19 +2,40 @@ package tp.v2;
 
 import java.util.Iterator;
 
+/**
+ * Interface qui permet de modeliser une liste mutable. Elle contient les accesseurs, les services et les fabriques des listes.
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public interface ListeMutable<E> extends Liste<E>{
 
 	/*
 	 * Accesseurs.
 	 */
+	/**
+	* Methode qui retourne le reste de la liste mutable
+	* @returns Le reste de la liste mutable. C'est a dire tout ce que n'est pas la tete
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
 	default ListeMutable<E> reste() {
 		throw new UnsupportedOperationException();
 	}
 	
+	/**
+	* Methode qui sert a changer le reste de la liste mutable
+	* @params ListeMutable<E> Le nouveau reste de la liste mutable
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
 	default void changerReste(ListeMutable<E> reste) {
 		throw new UnsupportedOperationException();
 	}
 	
+	/**
+	* Methode qui sert a changer la tete
+	* @params E La nouvelle tete de la liste mutable
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
 	default void changerTete(E tete) {
 		throw new UnsupportedOperationException();
 	}
@@ -22,6 +43,11 @@ public interface ListeMutable<E> extends Liste<E>{
 	/*
 	 * Services
 	 */
+	/**
+	* Methode qui renvoie l'inverse de la liste mutable
+	* @returns Une liste mutable qui contient le miroir de la liste mutable
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
 	default ListeMutable<E> miroir(){
 		if(casCons()) {
 			if(!estVide()) {
@@ -44,11 +70,24 @@ public interface ListeMutable<E> extends Liste<E>{
 	/*
 	 * Fabriques (statiques)
 	 */
+	/**
+	* Fabrique d'une liste mutable qui n'est pas vide
+	* @params E la tete de la nouvelle liste mutable
+	* @params ListeMutable<E> le reste de la nouvelle liste mutable
+	* @returns Une liste mutable qui n'est pas vide
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
 	public static <E> ListeMutable<E> cons(E t, ListeMutable<E> r){
 		return new ListeMutable<E>() {
-			// TODO Définir les méthodes utiles.
 			
+			/**
+			 * La tete de la liste mutable
+			 */
 			private E tete = t;
+			
+			/**
+			 *  Le reste de la liste mutable
+			 */
 			private ListeMutable<E> reste = r;
 			
 			@Override
@@ -73,6 +112,7 @@ public interface ListeMutable<E> extends Liste<E>{
 				this.tete = tete;
 			}
 			
+			@Override
 			public int taille(){
 				int taille = 0;
 				if(tete!=null) {
@@ -82,7 +122,8 @@ public interface ListeMutable<E> extends Liste<E>{
 				return taille;
 			}
 			
-			 public boolean estVide(){
+			@Override
+			public boolean estVide(){
 				if(tete != null) {
 					return false;
 				} else {
@@ -90,28 +131,42 @@ public interface ListeMutable<E> extends Liste<E>{
 				}
 			}
 			
+			@Override
 			public boolean casVide() {
 				return false;
 			}
-			 
+			
+			@Override
 			public boolean casCons() {
 				return true;
-			}
-			
+			}	
 		};
 	}
 	
+	/**
+	* Fabrique d'une liste mutable vide
+	* @returns Une liste mutable qui est vide
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
 	public static <E> ListeMutable<E> vide() {
 		return new ListeMutable<E>() {
+			
+			@Override
 			public boolean casVide() {
 				return true;
 			}
+			
+			@Override
 			public boolean casCons() {
 				return false;
 			}
+			
+			@Override
 			public int taille(){
 				return 0;
 			}
+			
+			@Override
 			 public boolean estVide(){
 				return true;
 			}						
