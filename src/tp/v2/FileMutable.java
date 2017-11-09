@@ -1,5 +1,11 @@
 package tp.v2;
 
+/**
+ * Interface qui permet de modeliser une file mutable. Elle contient les accesseurs, les services et les fabriques.
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public interface FileMutable<E> extends File<E> {
 
 	/*
@@ -8,19 +14,34 @@ public interface FileMutable<E> extends File<E> {
 	 */
 	@Override
 	default FileMutable<E> suivants(){ // spécialisation du type de retour
-		// TODO
-		FileMutable<E> rest= this.suivants(); 
-		return rest;
+		throw new UnsupportedOperationException();
 	}
 
+	/**
+	* Methode qui ajoute un element en fin de la file
+	* @params E L'element a ajouter en fin de la file
+	*/
 	void ajouter(E element);
+	
+	/**
+	* Methode qui retire le premier element de la file
+	*/
 	void retirer();
 	
 	/*
 	 * Fabriques
 	 * - nouvelle fabrique renvoyant une copie
 	 */
+	/**
+	* Methode qui cree une nouvelle file mutable vide
+	* @return Une nouvelle file mutable qui est vide
+	*/
 	FileMutable<E> creer();
+	
+	/**
+	* Methode qui cree une copie de la file mutable
+	* @return Une copie de la file mutable
+	*/
 	FileMutable<E> creerCopie();
 	
 	/*
@@ -30,28 +51,30 @@ public interface FileMutable<E> extends File<E> {
 	 */
 	@Override
 	default FileMutable<E> ajout(E dernierDansFile) {
-		// TODO 
 		this.suivants().ajouter(dernierDansFile);
 		return this;
 	}
 	@Override
 	default FileMutable<E> retrait() {
-		// TODO
 		this.retirer();
 		return this;
 	}
+	
 	// Complexité O(|secondeFile|)
 	@Override
 	default FileMutable<E> ajout(File<E> secondeFile) {
-		// TODO (même code que FileImmutable.ajout)
-		for(int i=0;i<secondeFile.taille();i++) {
-			this.suivants().ajouter(secondeFile.premier());
-			secondeFile.retrait();
+		FileMutable<E> r = this;
+		for(E e : secondeFile){
+			r = r.ajout(e);
 		}
-		return this;
+		return r;
 	}
 	
 	// Complexité en O(1).
+	/**
+	* Methode qui ajoute une file en fin de la file mutable
+	* @params File<E> La file a ajouter en fin de la file mutable
+	*/
 	void ajouter(File<E> secondeFile);
 
 }
