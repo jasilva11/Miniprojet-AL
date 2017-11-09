@@ -1,12 +1,18 @@
 package tp.v2;
 
+/**
+ * Interface qui permet de modeliser une file inmutable. Elle defini les accesseurs, les services et les fabriques.
+ * @author  D'LUYZ Daniel
+ * @author  SAENZ Henry
+ * @author  SILVA Jose
+ */
 public interface FileImmutable<E> extends File<E> {
 
 	/* 
 	 * Accesseurs
 	 */
 	/**
-	* Methode qui retourne  les elements de la pile qui vont après le premier
+	* Methode qui retourne  les elements de la pile qui vont aprï¿½s le premier
 	* @return Une liste immutable contenant les elements
 	*/
 	FileImmutable<E> suivants(); // spÃ©cialisation du type de retour
@@ -22,9 +28,9 @@ public interface FileImmutable<E> extends File<E> {
 	FileImmutable<E> creer(); // spÃ©cialisation du type de retour
 	
 	/**
-	* Fabrique d'une liste immutable, a partir dde la file cible et d'un élément ajouté en queue  
-	* @param E élément a ajouter
-	* @return Une liste immutable contenant le nouvel élément
+	* Fabrique d'une liste immutable, a partir dde la file cible et d'un ï¿½lï¿½ment ajoutï¿½ en queue  
+	* @param E ï¿½lï¿½ment a ajouter
+	* @return Une liste immutable contenant le nouvel ï¿½lï¿½ment
 	*/
 	FileImmutable<E> creer(E dernier); 
 	
