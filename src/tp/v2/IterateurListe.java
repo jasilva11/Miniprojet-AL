@@ -3,8 +3,8 @@ package tp.v2;
 import java.util.Iterator;
 
 public class IterateurListe<E> implements Iterator<E> {
-	Liste<E> liste;
-	E actuel;
+	private Liste<E> liste;
+	private E actuel;
 	
 	public IterateurListe(Liste<E> liste) {
 		// TODO Auto-generated constructor stub

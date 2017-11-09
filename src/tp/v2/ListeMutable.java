@@ -1,4 +1,6 @@
-	package tp.v2;
+package tp.v2;
+
+import java.util.Iterator;
 
 public interface ListeMutable<E> extends Liste<E>{
 
@@ -21,22 +23,22 @@ public interface ListeMutable<E> extends Liste<E>{
 	 * Services
 	 */
 	default ListeMutable<E> miroir(){
-		// TODO
-		return null;
-	}
-	
-	public default String toStringListe() {
-		
-		if(estVide()) {
-			return "[]";
-		} else {
-			StringBuilder s = new StringBuilder();
-			
-			s.append(reste().toString()+"-");
-			s.append(tete().toString());
-			
-			return s.toString();
-		}
+		if(casCons()) {
+			if(!estVide()) {
+				Iterator<E> iterator = this.iterator();
+				E current = this.tete();
+				ListeMutable<E> liste = ListeMutable.cons(current, ListeMutable.vide());
+				while(iterator.hasNext()) {
+					current = iterator.next();
+					ListeMutable<E> newReste = ListeMutable.cons(liste.tete(), liste.reste());
+					liste = ListeMutable.cons(current, newReste);
+				}
+				return liste;
+			}	
+		} 
+		 
+		ListeMutable<E> liste = ListeMutable.vide();
+		return liste;
 	}
 	
 	/*
@@ -71,6 +73,31 @@ public interface ListeMutable<E> extends Liste<E>{
 				this.tete = tete;
 			}
 			
+			public int taille(){
+				int taille = 0;
+				if(tete!=null) {
+					taille++;
+					taille += reste.taille();
+				};
+				return taille;
+			}
+			
+			 public boolean estVide(){
+				if(tete != null) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+			
+			public boolean casVide() {
+				return false;
+			}
+			 
+			public boolean casCons() {
+				return true;
+			}
+			
 		};
 	}
 	
@@ -82,7 +109,7 @@ public interface ListeMutable<E> extends Liste<E>{
 			public boolean casCons() {
 				return false;
 			}
-			 public int taille(){
+			public int taille(){
 				return 0;
 			}
 			 public boolean estVide(){

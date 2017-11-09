@@ -1,6 +1,5 @@
 package tp.v2;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /*
@@ -37,19 +36,17 @@ public interface Liste<E> extends Iterable<E> {
 	 * Services
 	 */
 	default Iterator<E> iterator() {
-		// TODO
-		return new IterateurListe<>(this); // Compléter puis utiliser IterateurListe.
+		return new IterateurListe<E>(this); // Compléter puis utiliser IterateurListe.
 	}
 	
-	public default String toStringListe() {
-		
+	default String toStringListe() {
 		if(estVide()) {
-			return "[]";
+			return "";
 		} else {
 			StringBuilder s = new StringBuilder();
 			
-			s.append(reste().toString()+"-");
-			s.append(tete().toString());
+			s.append(tete().toString()+" - ");
+			s.append(reste().toStringListe());
 			
 			return s.toString();
 		}
@@ -58,29 +55,21 @@ public interface Liste<E> extends Iterable<E> {
 	// renvoie la liste dans l'ordre inverse.
 	default Liste<E> miroir(){
 		if(casCons()) {
-			Iterator<E> iterator = iterator();
-			E current = iterator.next();
-			ArrayList<E> elements=new ArrayList<>();
-			while(iterator.hasNext()) {
-				elements.add(current);
-				current = iterator.next();
-			}
-			Liste<E> t=vide();
-			for(int i=0;i<elements.size();i++) {
-				
-				if(i==0) {
-					t=cons(elements.get(i), vide());
+			if(!estVide()) {
+				Iterator<E> iterator = iterator();
+				E current = this.tete();
+				Liste<E> liste = Liste.cons(current, Liste.vide());
+				while(iterator.hasNext()) {
+					current = iterator.next();
+					Liste<E> newReste = Liste.cons(liste.tete(), liste.reste());
+					liste = Liste.cons(current, newReste);
 				}
-				else {
-					t=cons(elements.get(i), t);
-				}
-			}
-			return t;
-		}
-		else {
-			return this;
-		}
-		
+				return liste;
+			}	
+		} 
+		 
+		Liste<E> liste = Liste.vide();
+		return liste;
 	}
 	/*
 	 * Fabriques (statiques)
@@ -88,16 +77,19 @@ public interface Liste<E> extends Iterable<E> {
 	
 	public static <E> Liste<E> vide() {
 		return new Liste<E>() {
-			// TODO Définir les méthodes utiles.
+			
 			public boolean casVide() {
 				return true;
 			}
+			
 			public boolean casCons() {
 				return false;
 			}
+			
 			 public int taille(){
 				return 0;
 			}
+			 
 			 public boolean estVide(){
 				return this.taille() == 0;
 			}	
@@ -113,15 +105,19 @@ public interface Liste<E> extends Iterable<E> {
 			public boolean casVide() {
 				return false;
 			}
+			
 			public E tete() {
 				return tete;
 			}
+			
 			public Liste<E> reste() {
 				return reste;
 			}
+			
 			public boolean casCons() {
 				return true;
 			}
+			
 			public int taille(){
 				return reste.taille()+1;
 			}
