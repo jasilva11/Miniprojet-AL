@@ -1,5 +1,8 @@
 package tp.v2;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
+
 /**
  * Classe qui sert à tester l'implementation de nos listes et de nos files.
  * @author  D'LUYZ Daniel
@@ -7,6 +10,8 @@ package tp.v2;
  * @author  SILVA Jose
  */
 public class Test {
+	  private static final ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
+	  private static long diviseur = 100000;
 	
 	/**
 	* Methode qui teste l'implementation des listes mutable pas vides
@@ -105,7 +110,7 @@ public class Test {
 	* @param deux files mutable qui n'est pas vide
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
-	private static <T extends File<Integer>> void testFilePasVite (File<Integer> fileMutable,File<Integer> fileMutableajouter) {
+	private static <T extends File<Integer>> void testFilePasVite (FileMutableImp<Integer> fileMutable,FileMutableImp<Integer> fileMutableajouter) {
 		System.out.println("******");
 		System.out.println("Une file mutable pas vide initiale");
 		System.out.println("La taille : "+fileMutable.taille());
@@ -144,7 +149,7 @@ public class Test {
 	* @param une files mutable qui est vide
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
-	private static <T extends File<Integer>> void testFileVite (File<Integer> fileMutableVide) {
+	private static <T extends File<Integer>> void testFileVite (FileMutableImp<Integer> fileMutableVide) {
 		System.out.println("******");
 		System.out.println("Une file mutable vide initiale");
 		System.out.println("La taille : "+fileMutableVide.taille());
@@ -169,7 +174,7 @@ public class Test {
 	* @param deux filesImmutable qui n'est pas vide
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
-	private static<T extends File<Integer>> void testFileImmutablePasVide(FileImmutable<Integer> fileImmutable,FileImmutable<Integer> fileImmutableajouter) {
+	private static<T extends File<Integer>> void testFileImmutablePasVide(FileImmutableImp<Integer> fileImmutable,FileImmutableImp<Integer> fileImmutableajouter) {
 		System.out.println("******");
 		System.out.println("Une fileImmutable pas vide initiale");
 		System.out.println("La taille : "+fileImmutable.taille());
@@ -210,7 +215,7 @@ public class Test {
 	* @param une filesImmutables qui est vide
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
-	private static<T extends File<Integer>> void testFileImmutableVide(FileImmutable<Integer> fileImmutable) {
+	private static<T extends File<Integer>> void testFileImmutableVide(FileImmutableImp<Integer> fileImmutable) {
 		System.out.println("******");
 		System.out.println("Une liste vide initiale");
 		System.out.println("La taille : "+fileImmutable.taille());
@@ -227,14 +232,41 @@ public class Test {
 	* @param  les args du système 
 	*/
 	public static void main(String[] args) {
+		System.out.println("Test Listes------");
 		ListeMutable<Integer> listeMutableVide = ListeMutable.vide();
 		ListeMutable<Integer> listeMutable = ListeMutable.cons(2, listeMutableVide);
 		testListeMutablePasVide(listeMutable);
 		testListeMutableVide(listeMutableVide);
 		
+		
 		Liste<Integer> listeVide = Liste.vide();
 		Liste<Integer> liste = Liste.cons(1, Liste.cons(2, Liste.cons(3, listeVide)));
 		testListePasVide(liste);
 		testListeVide(listeVide);
+		
+		System.out.println("-----------------------");
+		System.out.println("Test Files");
+		FileMutableImp<Integer> fileMutableVide = new FileMutableImp<Integer>();
+		FileMutableImp<Integer> fileMutable = new FileMutableImp<Integer>();
+		fileMutable.ajout(2);
+		FileMutableImp<Integer> fileMutablea = new FileMutableImp<Integer>();
+		fileMutablea.ajout(5);
+		long temps = threadBean.getCurrentThreadCpuTime();
+		testFilePasVite(fileMutable,fileMutablea);
+		testFileVite(fileMutableVide);
+	    temps = threadBean.getCurrentThreadCpuTime() - temps;
+	    System.out.println(fileMutableVide.getClass() + " - ajout/retrait: " + (temps / diviseur));
+		
+		FileImmutableImp<Integer> fileImmutableVide = new FileImmutableImp<Integer>();
+		FileImmutableImp<Integer> fileImmutable = new FileImmutableImp<Integer>();
+		fileImmutable.ajout(2);
+		FileImmutableImp<Integer> fileImmutablea = new FileImmutableImp<Integer>();
+		fileImmutablea.ajout(5);
+		temps = threadBean.getCurrentThreadCpuTime();
+		testFileImmutablePasVide(fileImmutable,fileImmutablea);
+		testFileImmutableVide(fileImmutableVide);
+	    temps = threadBean.getCurrentThreadCpuTime() - temps;
+	    System.out.println(fileMutableVide.getClass() + " - ajout/retrait: " + (temps / diviseur));
+
 	}
 }
