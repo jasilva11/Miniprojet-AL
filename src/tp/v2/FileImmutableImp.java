@@ -5,9 +5,9 @@ import java.util.Iterator;
 public class FileImmutableImp<E> implements FileImmutable<E>{
 
 	private Liste<E> debut;
-	
+
 	private Liste<E> fin;
-	
+
 	@Override
 	public E premier() {
 		// TODO Auto-generated method stub
@@ -28,7 +28,7 @@ public class FileImmutableImp<E> implements FileImmutable<E>{
 		{
 			Liste.cons(e, liste);
 		}
-		for(E e:fin)
+		for(E e:fin.miroir())
 		{
 			Liste.cons(e, liste);
 		}
@@ -38,12 +38,33 @@ public class FileImmutableImp<E> implements FileImmutable<E>{
 	@Override
 	public FileImmutable<E> suivants() {
 		// TODO Auto-generated method stub
-		return null;
+		FileImmutable<E> suivants = creer();
+
+		Iterator<E> itDebut = debut.iterator();
+
+		if(taille()>1) {
+			E element = itDebut.next();
+			while(itDebut.hasNext()) {
+				suivants.ajout(element);
+				element = itDebut.next();
+			}
+		} 
+
+		if(fin.taille()>0) {
+			Iterator<E> itFin = fin.iterator();
+			while(itDebut.hasNext()) {
+				E element = itFin.next();
+				suivants.ajout(element);
+			}
+		}
+
+		return suivants;
 	}
 
 	@Override
 	public FileImmutable<E> creer() {
 		// TODO Auto-generated method stub
+		
 		return new FileImmutableImp<E>();
 	}
 
