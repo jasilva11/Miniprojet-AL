@@ -19,7 +19,7 @@ public interface FileMutable<E> extends File<E> {
 
 	/**
 	* Methode qui ajoute un element en fin de la file
-	* @params E L'element a ajouter en fin de la file
+	* @param E L'element a ajouter en fin de la file
 	*/
 	void ajouter(E element);
 	
@@ -73,7 +73,7 @@ public interface FileMutable<E> extends File<E> {
 	// Complexité en O(1).
 	/**
 	* Methode qui ajoute une file en fin de la file mutable
-	* @params File<E> La file a ajouter en fin de la file mutable
+	* @param File<E> La file a ajouter en fin de la file mutable
 	*/
 	void ajouter(File<E> secondeFile);
 
