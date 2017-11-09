@@ -16,14 +16,32 @@ public class FileMutableImp<E> implements FileMutable<E> {
 	
 	@Override
 	public FileMutable<E> creer() {
-		// TODO Auto-generated method stub
-		return null;
+		this.debut = ListeMutable.vide();
+		this.fin = ListeMutable.vide();
+		return this;
 	}
 
 	@Override
 	public FileMutable<E> creerCopie() {
-		// TODO Auto-generated method stub
-		return null;
+		FileMutable<E> copie = creer();
+		
+		if(taille()>0) {
+			Iterator<E> itDebut = debut.iterator();
+			while(itDebut.hasNext()) {
+				E element = itDebut.next();
+				copie.ajout(element);
+			}
+			
+			if(fin.taille()>0) {
+				Iterator<E> itFin = fin.iterator();
+				while(itDebut.hasNext()) {
+					E element = itFin.next();
+					copie.ajout(element);
+				}
+			}
+		}
+		
+		return copie;
 	}
 	
 	@Override
@@ -33,7 +51,7 @@ public class FileMutableImp<E> implements FileMutable<E> {
 	
 	@Override
 	public FileMutable<E> suivants(){ // spécialisation du type de retour
-		FileMutable<E> suivants = creer();
+		FileMutable<E> suivants = creerCopie().retrait();
 		
 		Iterator<E> itDebut = debut.iterator();
 		
@@ -64,24 +82,38 @@ public class FileMutableImp<E> implements FileMutable<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		return null;
+		Liste<E> liste = new Liste<E>() {};
+		for(E e:debut)
+		{
+			Liste.cons(e, liste);
+		}
+		for(E e:fin.miroir())
+		{
+			Liste.cons(e, liste);
+		}
+		return new IterateurListe<>(liste.miroir());
 	}
 
 	@Override
 	public void ajouter(E element) {
-		// TODO Auto-generated method stub
-		
+		this.fin.changerTete(element);
 	}
 
 	@Override
 	public void retirer() {
-		// TODO Auto-generated method stub
-		
+		if(taille()>0) {
+			this.debut = debut.reste();
+			if(this.debut.taille()==0 && this.fin.taille()>0) {
+				this.debut = this.fin.miroir();
+			}
+		}
 	}
 
 	@Override
 	public void ajouter(File<E> secondeFile) {
-		
+		for(E element: secondeFile) {
+			ajouter(element);
+		}
 	}
 
 }
