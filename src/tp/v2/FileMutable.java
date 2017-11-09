@@ -51,7 +51,7 @@ public interface FileMutable<E> extends File<E> {
 	 */
 	@Override
 	default FileMutable<E> ajout(E dernierDansFile) {
-		this.suivants().ajouter(dernierDansFile);
+		this.ajouter(dernierDansFile);
 		return this;
 	}
 	@Override

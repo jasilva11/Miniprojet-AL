@@ -77,6 +77,7 @@ public class FileMutableImp<E> implements FileMutable<E> {
 
 	@Override
 	public int taille() {
+		
 		return debut.taille()+fin.taille();
 	}
 
@@ -96,7 +97,7 @@ public class FileMutableImp<E> implements FileMutable<E> {
 
 	@Override
 	public void ajouter(E element) {
-		this.debut.changerTete(element);
+		this.debut = this.debut.changerTete(element);
 		this.debut = debut.miroir();
 	}
 

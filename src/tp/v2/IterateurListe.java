@@ -9,7 +9,9 @@ public class IterateurListe<E> implements Iterator<E> {
 	public IterateurListe(Liste<E> liste) {
 		// TODO Auto-generated constructor stub
 		this.liste = liste;
-		this.actuel = liste.tete();
+		if(!liste.estVide()) {
+			this.actuel = liste.tete();
+		}
 	}
 
 	@Override
