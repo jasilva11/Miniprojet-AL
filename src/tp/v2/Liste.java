@@ -10,16 +10,16 @@ import java.util.Iterator;
  * - services : iterator, miroir    
  */
 /**
- * Interface qui sert à  modéliser une liste immutable.
+ * Interface qui sert ï¿½ modï¿½liser une liste immutable.
  * @author  D'LUYZ Daniel
  * @author  SAENZ Henry
  * @author  SILVA Jose
  */
 public interface Liste<E> extends Iterable<E> {
+	
 	/*
 	 * Accesseurs
 	 */
-
 	/**
 	 * Methode qui teste l'implementation des listes mutable pas vides
 	 * @param une liste mutable qui n'est pas vide
@@ -98,8 +98,8 @@ public interface Liste<E> extends Iterable<E> {
 
 	// renvoie la liste dans l'ordre inverse.
 	/**
-	 * Methode qui renvoie la liste à l'inverse
-	 * @return la liste à l'inverse
+	 * Methode qui renvoie la liste ï¿½ l'inverse
+	 * @return la liste ï¿½ l'inverse
 	 */
 	default Liste<E> miroir(){
 		if(casCons()) {
@@ -124,7 +124,7 @@ public interface Liste<E> extends Iterable<E> {
 	/**
 	* Fabrique d'une liste immutable vide
 	* @return Une liste immutable qui est vide
-	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executée
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportï¿½e est executï¿½e
 	*/
 	public static <E> Liste<E> vide() {
 		return new Liste<E>() {
