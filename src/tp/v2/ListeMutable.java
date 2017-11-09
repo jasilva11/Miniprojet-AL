@@ -36,7 +36,7 @@ public interface ListeMutable<E> extends Liste<E>{
 	* @param E La nouvelle tete de la liste mutable
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
-	default void changerTete(E tete) {
+	default ListeMutable<E> changerTete(E tete) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -106,10 +106,11 @@ public interface ListeMutable<E> extends Liste<E>{
 			}
 			
 			@Override
-			public void changerTete(E tete) {
+			public ListeMutable<E> changerTete(E tete) {
 				ListeMutable<E> newReste = cons(this.tete, this.reste);
 				changerReste(newReste);
 				this.tete = tete;
+				return this;
 			}
 			
 			@Override
@@ -150,6 +151,12 @@ public interface ListeMutable<E> extends Liste<E>{
 	*/
 	public static <E> ListeMutable<E> vide() {
 		return new ListeMutable<E>() {
+			
+			@Override
+			public ListeMutable<E> changerTete(E tete) {
+				ListeMutable<E> newListe = cons(tete, ListeMutable.vide());
+				return newListe;
+			}
 			
 			@Override
 			public boolean casVide() {

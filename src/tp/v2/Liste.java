@@ -103,7 +103,7 @@ public interface Liste<E> extends Iterable<E> {
 	 */
 	default Liste<E> miroir(){
 		if(casCons()) {
-			if(!estVide()) {
+			if(!estVide() && taille()>1) {
 				Iterator<E> iterator = iterator();
 				E current = this.tete();
 				Liste<E> liste = Liste.cons(current, Liste.vide());
@@ -113,7 +113,10 @@ public interface Liste<E> extends Iterable<E> {
 					liste = Liste.cons(current, newReste);
 				}
 				return liste;
-			}	
+			} else {
+				Liste<E> liste = Liste.cons(tete(), Liste.vide());
+				return liste;
+			}
 		} 
 		Liste<E> liste = Liste.vide();
 		return liste;

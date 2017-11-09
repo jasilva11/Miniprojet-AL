@@ -247,9 +247,12 @@ public class Test {
 		System.out.println("-----------------------");
 		System.out.println("Test Files");
 		FileMutableImp<Integer> fileMutableVide = new FileMutableImp<Integer>();
+		fileMutableVide = (FileMutableImp<Integer>) fileMutableVide.creer();
 		FileMutableImp<Integer> fileMutable = new FileMutableImp<Integer>();
+		fileMutable = (FileMutableImp<Integer>) fileMutable.creer();
 		fileMutable.ajout(2);
 		FileMutableImp<Integer> fileMutablea = new FileMutableImp<Integer>();
+		fileMutablea = (FileMutableImp<Integer>) fileMutablea.creer();
 		fileMutablea.ajout(5);
 		long temps = threadBean.getCurrentThreadCpuTime();
 		testFilePasVite(fileMutable,fileMutablea);

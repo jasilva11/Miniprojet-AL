@@ -82,8 +82,15 @@ public interface File<E> extends Iterable<E> {
 	* @return la representation en String de la file
 	*/
 	default String representation() {
-		if(premier() == null) return "";
-		else return premier().toString() + " " + suivants().representation();
+		if(taille() == 0) return "";
+		else {
+			StringBuilder s = new StringBuilder();
+
+			s.append(premier().toString()+" ");
+			if(suivants().taille()>0) s.append(suivants().representation());
+
+			return s.toString();
+		} 
 	}
 
 	/**
