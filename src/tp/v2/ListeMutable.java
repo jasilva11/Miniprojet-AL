@@ -24,7 +24,7 @@ public interface ListeMutable<E> extends Liste<E>{
 	
 	/**
 	* Methode qui sert a changer le reste de la liste mutable
-	* @params ListeMutable<E> Le nouveau reste de la liste mutable
+	* @param ListeMutable<E> Le nouveau reste de la liste mutable
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
 	default void changerReste(ListeMutable<E> reste) {
@@ -33,7 +33,7 @@ public interface ListeMutable<E> extends Liste<E>{
 	
 	/**
 	* Methode qui sert a changer la tete
-	* @params E La nouvelle tete de la liste mutable
+	* @param E La nouvelle tete de la liste mutable
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
 	default void changerTete(E tete) {
@@ -72,8 +72,8 @@ public interface ListeMutable<E> extends Liste<E>{
 	 */
 	/**
 	* Fabrique d'une liste mutable qui n'est pas vide
-	* @params E la tete de la nouvelle liste mutable
-	* @params ListeMutable<E> le reste de la nouvelle liste mutable
+	* @param E la tete de la nouvelle liste mutable
+	* @param ListeMutable<E> le reste de la nouvelle liste mutable
 	* @return Une liste mutable qui n'est pas vide
 	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
 	*/
