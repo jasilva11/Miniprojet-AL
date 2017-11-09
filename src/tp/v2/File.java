@@ -34,50 +34,24 @@ public interface File<E> extends Iterable<E> {
 	File<E> ajout(File<E> secondeFile);
 
 	default String representation() {
-		// TODO 
-		if(premier()==null)
-		{
-			return "";
-		}
-		else
-		{
-			return premier().toString() + " " + suivants().representation();
-		}
+		if(premier() == null) return "";
+		else return premier().toString() + " " + suivants().representation();
 	}
 
 	default boolean estEgal(File<E> file){
-		// TODO
-		if(taille() != file.taille())
-		{
-			return false;
-		}
+		if(taille() != file.taille()) return false;
 		else
 		{
 			if(premier()!=null)
 			{
-				if(premier()!=file.premier())
-				{
-					return false;
-				}
-				else
-				{
-					return true && suivants().estEgal(file.suivants());
-				}
+				if(premier()!=file.premier()) return false;
+				else return true && suivants().estEgal(file.suivants());
 			}
 			else
 			{
-				if(file.premier()==null)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+				if(file.premier()==null) return true;
 			}
-			
 		}
+		return false;
 	}
-
-
 }
