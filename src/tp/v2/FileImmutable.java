@@ -1,5 +1,7 @@
 package tp.v2;
 
+import java.util.ArrayList;
+
 public interface FileImmutable<E> extends File<E> {
 
 	/* 
@@ -20,12 +22,16 @@ public interface FileImmutable<E> extends File<E> {
 	@Override
 	default FileImmutable<E> ajout(E dernierDansFile) {
 		// TODO
+		ArrayList<E> elements=new ArrayList<>();
+		for(int i=0;i<this.taille();i++) {
+			elements.add(this.premier());
+		}
 		return null;
 	}
 	@Override
 	default FileImmutable<E> retrait() {
 		// TODO
-		return null;
+		return this.suivants();
 	}
 	// Complexité O(|secondeFile|)
 	@Override
