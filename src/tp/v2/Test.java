@@ -1,7 +1,7 @@
 package tp.v2;
 
 /**
- * Classe qui sert à tester l'implementation de nos listes.
+ * Classe qui sert à tester l'implementation de nos listes et de nos files.
  * @author  D'LUYZ Daniel
  * @author  SAENZ Henry
  * @author  SILVA Jose
@@ -100,6 +100,127 @@ public class Test {
 		System.out.println("La liste : "+liste.toStringListe());
 		System.out.println("");
 	}
+	/**
+	* Methode qui teste l'implementation des Files mutable pas vides
+	* @param deux files mutable qui n'est pas vide
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
+	private static <T extends File<Integer>> void testFilePasVite (File<Integer> fileMutable,File<Integer> fileMutableajouter) {
+		System.out.println("******");
+		System.out.println("Une file mutable pas vide initiale");
+		System.out.println("La taille : "+fileMutable.taille());
+		System.out.println("Elle est vide ? : "+fileMutable.estVide());
+		System.out.println("La file mutable : "+fileMutable.representation());
+		System.out.println("");
+		
+		System.out.println("On ajoute le 3");
+		fileMutable.ajout(3);
+		System.out.println("Elle est vide ? : "+fileMutable.estVide());
+		System.out.println("La taille : "+fileMutable.taille());
+		System.out.println("La file mutable : "+fileMutable.representation());
+		System.out.println("");
+		
+		System.out.println("On ajoute le 4");
+		fileMutable.ajout(4);
+		System.out.println("Elle est vide ? : "+fileMutable.estVide());
+		System.out.println("La taille : "+fileMutable.taille());
+		System.out.println("La file mutable : "+fileMutable.representation());
+		System.out.println("");
+		
+		System.out.println("On retire le 3");
+		fileMutable.retrait();
+		System.out.println("Elle est vide ? : "+fileMutable.estVide());
+		System.out.println("La taille : "+fileMutable.taille());
+		System.out.println("La file mutable : "+fileMutable.representation());
+		System.out.println("");
+		
+		System.out.println("On ajoute la deuxieme file");
+		fileMutable.ajout(fileMutableajouter);
+		System.out.println("La file mutable : "+fileMutable.representation());
+
+	}
+	/**
+	* Methode qui teste l'implementation des files mutable vides
+	* @param une files mutable qui est vide
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
+	private static <T extends File<Integer>> void testFileVite (File<Integer> fileMutableVide) {
+		System.out.println("******");
+		System.out.println("Une file mutable vide initiale");
+		System.out.println("La taille : "+fileMutableVide.taille());
+		System.out.println("Elle est vide ? : "+fileMutableVide.estVide());
+		System.out.println("La file mutable : "+fileMutableVide.representation());
+		System.out.println("");
+		
+		System.out.println("On essaie d'ajouter le 3");
+		try {
+			fileMutableVide.ajout(3);
+			System.out.println("Elle est vide ? : "+fileMutableVide.estVide());
+			System.out.println("");
+		} catch(UnsupportedOperationException e) {
+			System.out.println("Elle est vide ? : "+fileMutableVide.estVide());
+			System.out.println("Test passé");
+			System.out.println("");
+		}
+	}
+
+	/**
+	* Methode qui teste l'implementation des filesImmutables pas vides
+	* @param deux filesImmutable qui n'est pas vide
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
+	private static<T extends File<Integer>> void testFileImmutablePasVide(FileImmutable<Integer> fileImmutable,FileImmutable<Integer> fileImmutableajouter) {
+		System.out.println("******");
+		System.out.println("Une fileImmutable pas vide initiale");
+		System.out.println("La taille : "+fileImmutable.taille());
+		System.out.println("Elle est vide ? : "+fileImmutable.estVide());
+		System.out.println("La liste : "+fileImmutable.representation());
+		System.out.println("");
+		
+		System.out.println("On ajoute le 3");
+		fileImmutable.ajout(3);
+		System.out.println("Elle est vide ? : "+fileImmutable.estVide());
+		System.out.println("La taille : "+fileImmutable.taille());
+		System.out.println("La file mutable : "+fileImmutable.representation());
+		System.out.println("");
+		
+		System.out.println("On ajoute le 4");
+		fileImmutable.ajout(4);
+		System.out.println("Elle est vide ? : "+fileImmutable.estVide());
+		System.out.println("La taille : "+fileImmutable.taille());
+		System.out.println("La file mutable : "+fileImmutable.representation());
+		System.out.println("");
+		
+		System.out.println("On retire le 3");
+		fileImmutable.retrait();
+		System.out.println("Elle est vide ? : "+fileImmutable.estVide());
+		System.out.println("La taille : "+fileImmutable.taille());
+		System.out.println("La file mutable : "+fileImmutable.representation());
+		System.out.println("");
+		
+		System.out.println("On ajoute la deuxieme file");
+		fileImmutable.ajout(fileImmutableajouter);
+		System.out.println("La file mutable : "+fileImmutable.representation());
+		
+
+	}
+	
+	/**
+	* Methode qui teste l'implementation des filesImmutables vides
+	* @param une filesImmutables qui est vide
+	* @throws UnsupportedOperationException au cas ou une operation qui n'est pas supportée est executee
+	*/
+	private static<T extends File<Integer>> void testFileImmutableVide(FileImmutable<Integer> fileImmutable) {
+		System.out.println("******");
+		System.out.println("Une liste vide initiale");
+		System.out.println("La taille : "+fileImmutable.taille());
+		System.out.println("Elle est vide ? : "+fileImmutable.estVide());
+		System.out.println("La liste : "+fileImmutable.representation());
+		System.out.println("");
+		
+		
+	}
+	
 	
 	/**
 	* Methode qui gère l'éxecution du test
