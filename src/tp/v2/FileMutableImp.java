@@ -96,7 +96,8 @@ public class FileMutableImp<E> implements FileMutable<E> {
 
 	@Override
 	public void ajouter(E element) {
-		this.fin.changerTete(element);
+		this.debut.changerTete(element);
+		this.debut = debut.miroir();
 	}
 
 	@Override
