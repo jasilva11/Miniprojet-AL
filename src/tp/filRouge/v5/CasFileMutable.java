@@ -1,48 +1,53 @@
 package tp.filRouge.v5;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CasFileMutable<E> implements FileMutable<E> {
 
 	@Override
 	public E premier() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.premier();
 	}
 
 	@Override
 	public FileMutable<E> creer() {
-		// TODO Auto-generated method stub
-		return null;
+		while(this.taille()>=1) {
+			this.retrait();
+		}
+		return this;
 	}
 
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<E> array = new ArrayList<E>();
+		array.add(this.premier());
+		FileMutable<E> suivantsFileMut = this.suivants();
+		while(suivantsFileMut.suivants().taille() >= 1) {
+			array.add(suivantsFileMut.premier());
+			suivantsFileMut = suivantsFileMut.suivants();
+		}
+		return array.iterator();
 	}
 
 	@Override
 	public int taille() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (this.suivants().taille()>0) return this.suivants().taille()+1;
+		else return 1;
 	}
 
 	@Override
 	public void ajouter(E element) {
-		// TODO Auto-generated method stub
-		
+		this.suivants().ajout(element);
 	}
 
 	@Override
 	public void retirer() {
-		// TODO Auto-generated method stub
-		
+		this.retrait();
 	}
 
 	@Override
 	public FileMutable<E> creerCopie() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
