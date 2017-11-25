@@ -48,6 +48,7 @@ public class CasFileMutable<E> implements FileMutable<E> {
 
 	@Override
 	public FileMutable<E> creerCopie() {
+		
 		return null;
 	}
 
