@@ -50,4 +50,5 @@ public class CasFileMutable<E> implements FileMutable<E> {
 	public FileMutable<E> creerCopie() {
 		return null;
 	}
+	
 }
