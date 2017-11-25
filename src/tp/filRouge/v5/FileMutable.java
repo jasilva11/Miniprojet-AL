@@ -6,7 +6,7 @@ public interface FileMutable<E> extends File<FileMutable<E>,E>, IdentifiableParI
 	void retirer();
 	
 	default FileMutable<E> suivants(){
-		return creerCopie();
+		return this.suivants().creerCopie();
 	}
 	
 	FileMutable<E> creerCopie();
