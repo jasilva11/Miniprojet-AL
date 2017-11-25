@@ -154,7 +154,6 @@ public interface ListeMutable<E> extends Liste<E>{
 			
 			@Override
 			public ListeMutable<E> changerTete(E tete) {
-				System.out.println("Entro a vide");
 				ListeMutable<E> newListe = cons(tete, ListeMutable.vide());
 				return newListe;
 			}
