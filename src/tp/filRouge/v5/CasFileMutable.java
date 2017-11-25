@@ -48,7 +48,10 @@ public class CasFileMutable<E> implements FileMutable<E> {
 
 	@Override
 	public FileMutable<E> creerCopie() {
-		return null;
+		FileMutable<E> copieFille = this.creer();
+		copieFille.ajout(this.premier());
+		copieFille.ajout(this.suivants());
+		return copieFille;
 	}
 	
 }
