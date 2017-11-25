@@ -4,7 +4,7 @@ public interface File <K extends File<K,E>,E> extends Iterable<E>,Mesurable{
 	E premier(); // Premier de la file
 	K suivants(); // Ses suivants
 	public default boolean estVide() {
-		return false;
+		return this.taille() == 0;
 	}
 	K creer(); // fabrique d'une file vide
 	
