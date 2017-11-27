@@ -1,29 +1,22 @@
 package tp.filRouge.v5;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class CasFileMutable<E> implements FileMutable<E> {
+public class CasFileMutable<E> implements ServicesFileMutable<E> {
+	
+	EtatFileMutable<E> etat;
 
-	@Override
-	public E premier() {
-		return this.premier();
+	public CasFileMutable(EtatFileMutable<E> e){
+		etat = e;
 	}
-
-	@Override
-	public FileMutable<E> creer() {
-		while(this.taille()>=1) {
-			this.retrait();
-		}
-		return this;
-	}
-
+	
 	@Override
 	public Iterator<E> iterator() {
+		// TODO Auto-generated method stub
 		ArrayList<E> array = new ArrayList<E>();
-		array.add(this.premier());
-		FileMutable<E> suivantsFileMut = this.suivants();
-		while(suivantsFileMut.suivants().taille() >= 1) {
+		array.add(etat.premier());
+		EtatFileMutable<E> suivantsFileMut = etat.suivants();
+		while(!suivantsFileMut.suivants().estVide()) {
 			array.add(suivantsFileMut.premier());
 			suivantsFileMut = suivantsFileMut.suivants();
 		}
@@ -32,26 +25,45 @@ public class CasFileMutable<E> implements FileMutable<E> {
 
 	@Override
 	public int taille() {
-		if (this.suivants().taille()>0) return this.suivants().taille()+1;
-		else return 1;
+		// TODO Auto-generated method stub
+		int taille= 0;
+		EtatFileMutable<E> actuel = etat.suivants();
+		if(etat.premier()!=null) {
+			taille++;
+			while(!actuel.estVide()) {
+				taille++;
+				actuel = actuel.suivants();
+			}
+		}
+		return taille;
 	}
 
 	@Override
-	public void ajouter(E element) {
-		this.suivants().ajout(element);
+	public CasFileMutable<E> retrait() {
+		// TODO Auto-generated method stub
+		this.etat.retirer();
+		return this;
 	}
 
 	@Override
-	public void retirer() {
-		this.retrait();
+	public CasFileMutable<E> ajout(E element) {
+		// TODO Auto-generated method stub
+		this.etat.ajouter(element);
+		return this;
 	}
 
 	@Override
-	public FileMutable<E> creerCopie() {
-		FileMutable<E> copieFille = this.creer();
-		copieFille.ajout(this.premier());
-		copieFille.ajout(this.suivants());
-		return copieFille;
+	public CasFileMutable<E> creer() {
+		return null;
+	}
+
+	@Override
+	public CasFileMutable<E> creerCopie() {
+		return this;
+	}
+	
+	public String representer() {
+		return etat.representation();
 	}
 	
 }

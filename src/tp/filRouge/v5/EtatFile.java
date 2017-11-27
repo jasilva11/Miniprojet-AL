@@ -5,7 +5,15 @@ public interface EtatFile<K, E> {
 	//Accesseurs
 	E premier();
 	K suivants(); 
-	boolean estVide();
+	public default boolean estVide() {
+		if(premier()!=null) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	String representation();
 	
 	//Fabrique
 	K creer(); 

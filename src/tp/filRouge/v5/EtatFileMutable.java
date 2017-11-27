@@ -1,10 +1,7 @@
 package tp.filRouge.v5;
 
-public interface EtatFileMutable<E> extends EtatFile<FileMutable<E>, E> {
-	
+public interface EtatFileMutable<E> extends EtatFile<EtatFileMutable<E>, E>{
 	void ajouter(E element);
-	
 	void retirer();
-	
-	FileMutable<E> creerCopie();
+	EtatFileMutable<E> creerCopie();
 }
